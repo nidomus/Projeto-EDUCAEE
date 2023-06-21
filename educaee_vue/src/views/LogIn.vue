@@ -107,9 +107,13 @@ export default {
                 .post('/api/v1/token/login/', formData)
 
                 .then(response => {
-                    this.token = response.data.auth_token
-                    axios.defaults.headers.common['Authorization'] = 'Token ' + this.token
-                    console.log('aqui')
+                    const token = response.data.auth_token
+
+                    this.$store.commit('setToken', token)
+
+                    axios.defaults.headers.common['Authorization'] = 'Token ' + token
+
+                    localStorage.setItem('token', token)
                 })
                 .catch(error => {
                     if (error.response) {

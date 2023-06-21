@@ -4,6 +4,7 @@ import store from '../store'
 import HomeView from '../views/HomeView.vue'
 import LogIn from '../views/LogIn.vue'
 import Alunos from '../views/Alunos.vue'
+import CadastrarAluno from '../views/CadastrarAluno.vue'
 
 const routes = [
   {
@@ -23,6 +24,16 @@ const routes = [
     meta: {
       requireLogin: true,
       title: 'Alunos'
+
+    }
+  },
+  {
+    path: '/cadastar-aluno',
+    name: 'CadastrarAluno',
+    component: CadastrarAluno,
+    meta: {
+      requireLogin: true,
+      title: 'Cadastrar Aluno'
 
     }
   }
