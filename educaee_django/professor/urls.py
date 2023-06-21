@@ -2,10 +2,10 @@ from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
 
-from .views import HistoricoViewSet, get_historicos, salvar_historico
+from .views import ProfessorViewSet
 
 router = DefaultRouter()
-router.register(r"professores", HistoricoViewSet, basename="professores")
+router.register(r"professores", ProfessorViewSet, basename="professores")
 
 urlpatterns = [
     path("", include(router.urls)),

@@ -21,7 +21,6 @@ from django.contrib.auth import views as auth_views  # import this
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("password_reset.urls")),
     path("api/v1/", include("djoser.urls")),
     path("api/v1/", include("djoser.urls.authtoken")),
     path("api/v1/", include("professor.urls")),
