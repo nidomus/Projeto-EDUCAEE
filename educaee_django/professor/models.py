@@ -1,7 +1,7 @@
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth.models import User
 
 class Professor(models.Model):
-
-    nome = models.CharField(max_length=255,null=True)
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    funcao = models.CharField(max_length=40, blank=True)
