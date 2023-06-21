@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',# Adicionado
     'rest_framework.authtoken',# Adicionado
     'professor.apps.ProfessorConfig',
+    'aluno.apps.AlunoConfig'
 ]
 
 MIDDLEWARE = [
