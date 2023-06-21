@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
             "last_name",
         )
 
-class TeamSerializer(serializers.ModelSerializer):
+class ProfessorSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
 
     class Meta:
