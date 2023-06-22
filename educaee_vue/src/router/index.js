@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView.vue'
 import LogIn from '../views/LogIn.vue'
 import Alunos from '../views/Alunos.vue'
 import CadastrarAluno from '../views/CadastrarAluno.vue'
+import Painel from '../views/Painel.vue'
 
 const routes = [
   {
@@ -24,6 +25,16 @@ const routes = [
     meta: {
       requireLogin: true,
       title: 'Alunos'
+
+    }
+  },
+  {
+    path: '/painel',
+    name: 'Painel',
+    component: Painel,
+    meta: {
+      requireLogin: true,
+      title: 'Painel'
 
     }
   },

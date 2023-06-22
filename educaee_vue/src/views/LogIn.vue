@@ -132,8 +132,10 @@ export default {
                     .get('/api/v1/users/me')
                     .then(response => {
 
-                        this.user.nome = response.data.username
-                        this.user.id = response.data.id
+                        this.$store.commit('setUser', { 'id': response.data.id, 'username': response.data.username })
+
+                        localStorage.setItem('username', response.data.username)
+                        localStorage.setItem('userid', response.data.id)
 
                     })
                     .catch(error => {
@@ -142,17 +144,9 @@ export default {
 
                     })
 
-                this.$store.commit('setToken', this.token) // Chama os métodos guardados no Mutations do index.js
 
-                localStorage.setItem('token', this.token)
-
-                this.$store.commit('setUser', { 'id': this.user.id, 'username': this.user.nome })
-
-                localStorage.setItem('username', this.user.nome)
-                localStorage.setItem('userid', this.user.id)
-
-                this.$store.commit('setIsLoading', true)
-                this.$router.push('/alunos/')
+                // this.$store.commit('setIsLoading', true)
+                this.$router.push('/painel/')
 
             }
 

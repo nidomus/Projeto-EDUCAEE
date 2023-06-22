@@ -1,5 +1,5 @@
 <template>
-    <div class="container is-fluid">
+    <div class="container">
 
         <div class="columns is-centered is-multiline">
 
