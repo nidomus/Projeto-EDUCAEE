@@ -30,13 +30,21 @@ export default {
 </script>
 <!-- Importando o CSS Bulma para o projeto -->
 <style lang="scss">
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.woff') format('woff');
+  font-weight: normal;
+}
+
 @import '../node_modules/bulma'
 </style>
 
 <style>
-body {
-  background-image: url("./assets/plano_de_fundo.jpeg");
+.hero-body {
+  background-image: url("./assets/background_img.svg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   height: 100vh;
 
 }

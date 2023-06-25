@@ -19,7 +19,7 @@
                     <form @submit.prevent="submitForm">
 
                         <div class="field">
-                            <label class="form-label">Usuário</label>
+                            <label class="label">Usuário</label>
                             <div class="control">
                                 <input type="text" name="text" placeholder='' required class="input" v-model="username">
 
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="field">
-                            <label class="form-label">Senha</label>
+                            <label class="label">Senha</label>
                             <div class="control">
                                 <input type="password" name="password1" required class="input" v-model="password">
 
@@ -161,4 +161,9 @@ export default {
 
 </script>
 
-<style></style>
+<style>
+.label {
+    font-family: Poppins;
+    font-size: large;
+}
+</style>
