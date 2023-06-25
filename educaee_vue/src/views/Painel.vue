@@ -5,7 +5,17 @@
 
             <div class="column is-7">
                 <div class="box" style="background-color: #FFE600; border-radius: 20px;">
-                    <h1 class="title is-size-1 has-text-centered"><strong>Meu Painel</strong></h1>
+                    <div class="columns is-centered is-vcentered">
+                        <div class="column is-four-fifths pr-0">
+                            <h1 class="title is-size-1 ml-6 pl-6 has-text-centered"><strong>Meu Painel</strong></h1>
+                        </div>
+
+                        <div class="column is-narrow pl-0">
+                            <div class="buttons is-left">
+                                <button class="button is-danger is-rounded is-medium" @click="logout()">Sair</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -94,6 +104,7 @@
 
 
 <script>
+import router from '@/router';
 import axios from 'axios';
 import { toast } from 'bulma-toast'
 
@@ -104,6 +115,15 @@ export default {
 
         }
     },
+    methods: {
+
+        logout() {
+            this.$store.commit('logoutUser')
+            this.$store.commit('removeToken')
+            this.$router.push('/log-in')
+        }
+
+    }
 }
 </script>
 
