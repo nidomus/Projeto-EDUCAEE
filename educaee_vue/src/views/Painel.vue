@@ -7,7 +7,8 @@
                 <div class="box" style="background-color: #FFE600; border-radius: 20px;">
                     <div class="columns is-centered is-vcentered">
                         <div class="column is-four-fifths pr-0">
-                            <h1 class="title is-size-1 ml-6 pl-6 has-text-centered"><strong>Meu Painel</strong></h1>
+                            <h1 id="titulo" class="is-size-1 ml-6 pl-6 has-text-centered"><strong>MEU PAINEL</strong>
+                            </h1>
                         </div>
 
                         <div class="column is-narrow pl-0">
@@ -133,6 +134,14 @@ export default {
     box-shadow: 10px 10px;
     height: 300px;
     width: 335px;
+
+}
+
+#titulo {
+
+    font-family: Poppins;
+    font-weight: bolder;
+    font-size: larger;
 
 }
 </style>

@@ -1,35 +1,33 @@
 <template>
     <div class="container">
-
-        <br>
-        <br>
-
         <div class="columns is-multiline is-centered">
             <div class="column is-12">
                 <div class="level-item">
                     <br>
-                    <span class="is-size-1">Login do Professor</span>
+                    <h1 class="is-size-1 titulo">Olá, seja bem-vindo(a) </h1>
                 </div>
 
             </div>
 
-            <div :class="`column is-5-desktop is-12-touch`">
+            <div :class="`column is-6-desktop is-12-touch`">
                 <div class=" box p-6  form-box">
 
                     <form @submit.prevent="submitForm">
 
                         <div class="field">
-                            <label class="label">Usuário</label>
+                            <label class="label">Usuário:</label>
                             <div class="control">
-                                <input type="text" name="text" placeholder='' required class="input" v-model="username">
+                                <input class="input is-medium" type="text" name="text" placeholder='Insira seu usuário'
+                                    required v-model="username">
 
                             </div>
                         </div>
 
-                        <div class="field">
-                            <label class="label">Senha</label>
+                        <div class="field pt-5">
+                            <label class="label">Senha:</label>
                             <div class="control">
-                                <input type="password" name="password1" required class="input" v-model="password">
+                                <input class="input is-medium" placeholder="Insira sua senha" type="password"
+                                    name="password1" required v-model="password">
 
                             </div>
                         </div>
@@ -39,16 +37,15 @@
                             <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
                         </div>
 
-                        <div class="level-item">
-                            <div class="field is-centered">
-                                <div class="control">
-                                    <button class="button is-success" :class="{ 'is-loading': this.carregando }"
-                                        id="btn-entrar">Entrar</button>
+                        <div class="field ">
+                            <div class="control">
+                                <div class="buttons full-width is-right">
+                                    <button class="button is-medium" :class="{ 'is-loading': this.carregando }"
+                                        id="btn-entrar">Logar</button>
                                 </div>
                             </div>
-                        </div>
-                        <br>
 
+                        </div>
 
                     </form>
 
@@ -165,5 +162,25 @@ export default {
 .label {
     font-family: Poppins;
     font-size: large;
+    z-index: 99999;
+}
+
+.form-box {
+    background-color: rgb(255, 255, 255, 0.85);
+    border-radius: 20px;
+    z-index: -999999;
+}
+
+.titulo {
+
+    font-family: Poppins;
+    color: #FF4D00;
+    font-weight: bolder;
+}
+
+#btn-entrar {
+    background-color: #40A403;
+    color: white;
+    font-family: Poppins;
 }
 </style>

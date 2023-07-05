@@ -24,8 +24,12 @@ export default {
     } else {
 
       axios.defaults.headers.common['Authorization'] = ""
+
     }
   },
+  mounted() {
+
+  }
 }
 </script>
 <!-- Importando o CSS Bulma para o projeto -->
@@ -44,7 +48,7 @@ export default {
   background-image: url("./assets/background_img.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   height: 100vh;
 
 }
