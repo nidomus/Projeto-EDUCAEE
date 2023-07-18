@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="columns is-centered is-multiline">
+        <div class="columns is-centered is-multiline is-scrollable">
 
             <div class="column is-12">
                 <div class="box" style="background-color: #FFE600; border-radius: 20px;">
@@ -30,48 +30,78 @@
 
                 <div class="box p-6" id="box-add">
 
-                    <form @submit.prevent="submitForm" class="p-6">
+                    <form @submit.prevent="submitForm" class="p-4  is-scrollable">
 
                         <div class="columns">
-                            <div class="column is-4"></div>
-                            <div class="column is-6">
-                                <div class="field ">
-                                    <div class="control">
-                                        <label class="label has-text-light">Nome completo do Aluno* </label>
-                                        <input type="text" width="40" class="input" v-model="nome">
+
+                            <div class="column is-12">
+                                <div class="columns">
+
+                                    <div class="column is-narrow pr-10">
+                                        <div>
+                                            <img id="profile_pic" :src="`${foto_aluno}`">
+                                        </div>
+                                        <br>
+
+                                        <div class="file is-dark is-centered">
+                                            <label class="file-label">
+                                                <input class="file-input" type="file" name="resume" id="foto_aluno"
+                                                    v-on:change="salvar_foto">
+                                                <span class="file-cta">
+                                                    <span class="file-icon">
+                                                        <font-awesome-icon icon="camera" />
+                                                    </span>
+                                                    <span class="file-label">
+                                                        Escolha uma foto
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </div>
 
                                     </div>
-                                </div>
-                            </div>
-                            <div class="column is-2">
-                                <div class="field ">
-                                    <label class="label has-text-light">Sexo*</label>
-                                    <div class="control ">
-                                        <div class="select">
-                                            <select>
-                                                <option>F</option>
-                                                <option>M</option>
-                                            </select>
+
+                                    <div class="column is-8">
+                                        <div class="columns is-multiline">
+                                            <div class="column is-12">
+                                                <div class="field ">
+                                                    <div class="control">
+                                                        <label class="label has-text-light">Nome completo do Aluno* </label>
+                                                        <input type="text" width="40" class="input" v-model="nome">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="column is-narrow">
+                                                <div class="field">
+                                                    <label class="label has-text-light">Data de nascimento*</label>
+                                                    <div class="control">
+                                                        <input type="date" class="input" v-model="password1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="column is-narrow">
+                                                <div class="field ">
+                                                    <label class="label has-text-light">Sexo*</label>
+                                                    <div class="control ">
+                                                        <div class="select">
+                                                            <select>
+                                                                <option>F</option>
+                                                                <option>M</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
+
                             </div>
                         </div>
 
-                        <div class="columns">
-                            <div class="column is-4"></div>
-
-                            <div class="column is-3">
-                                <div class="field">
-                                    <label class="label has-text-light">Data de nascimento*</label>
-                                    <div class="control">
-                                        <input type="date" class="input" v-model="password1">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
                         <div class="columns is-vcentered is-centered">
                             <div class="column is-8">
                                 <div class="field">
@@ -138,7 +168,7 @@
                             </div>
                         </div>
                         <div class="notification is-danger is-light" v-if="errors.length">
-                            <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
+                            <p v-for=" error  in  errors " v-bind:key="error">{{ error }}</p>
                         </div>
 
                         <div class="field">
@@ -160,6 +190,7 @@
 
 <script>
 import axios from 'axios';
+import imagem_padrao from '../assets/aluna.png'
 import { toast } from 'bulma-toast'
 
 export default {
@@ -169,16 +200,44 @@ export default {
             username: '',
             password1: '',
             password2: '',
-            errors: []
+            errors: [],
+            foto_aluno: imagem_padrao
         }
     },
+
+    methods: {
+
+        salvar_foto(event) {
+            console.log(event.target.files)
+            this.foto_aluno = event.target.files[0]
+        }
+
+    }
 }
 </script>
 
 <style>
+.is-scrollable {
+    display: flex;
+    overflow-y: visible;
+    flex-direction: column;
+}
+
+#profile_pic {
+
+    border: 10px solid black;
+    background-color: white;
+    padding: auto;
+
+    border-radius: 50%;
+
+}
+
 #box-add {
+    border: 5px solid black;
     background-color: #FF00F5;
-    border-radius: 10px;
+    border-radius: 20px;
     color: white;
+
 }
 </style>
